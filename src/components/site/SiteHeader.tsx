@@ -26,6 +26,9 @@ export function SiteHeader() {
             alt="Ottawa Full Spectrum Home Inspection logo"
             className="h-9 w-auto"
           />
+          <span className="font-display text-xs sm:text-sm font-semibold text-foreground leading-tight max-w-[180px] sm:max-w-[240px]">
+            Ottawa Full Spectrum Home Inspection
+          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
