@@ -8,9 +8,11 @@ export function SiteFooter() {
       <div className="container-prose grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary-foreground/10">
-              <Leaf className="h-4.5 w-4.5" strokeWidth={2.2} />
-            </span>
+            <img
+              src={logoAsset.url}
+              alt="Ottawa Full Spectrum Home Inspection logo"
+              className="h-9 w-auto"
+            />
             <span className="font-display text-lg font-semibold tracking-tight">
               Ottawa Full Spectrum Home Inspection
             </span>
