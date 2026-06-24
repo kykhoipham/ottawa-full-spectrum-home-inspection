@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Phone, Leaf } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoAsset from "@/assets/logo.jpg.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -20,17 +21,11 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="container-prose flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-forest text-primary-foreground shadow-soft">
-            <Leaf className="h-4.5 w-4.5" strokeWidth={2.2} />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-[15px] font-semibold tracking-tight text-foreground">
-              Ottawa Full Spectrum
-            </span>
-            <span className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              Home Inspection
-            </span>
-          </span>
+          <img
+            src={logoAsset.url}
+            alt="Ottawa Full Spectrum Home Inspection logo"
+            className="h-9 w-auto"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
