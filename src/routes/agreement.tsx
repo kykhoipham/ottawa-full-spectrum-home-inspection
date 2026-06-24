@@ -9,7 +9,9 @@ export const Route = createFileRoute("/agreement")({
       { name: "description", content: "Standard pre-inspection agreement outlining the scope, limitations, and terms of service." },
       { property: "og:title", content: "Inspection Agreement" },
       { property: "og:description", content: "Read our standard inspection agreement and terms of service." },
+      { property: "og:url", content: "/agreement" },
     ],
+    links: [{ rel: "canonical", href: "/agreement" }],
   }),
   component: Agreement,
 });

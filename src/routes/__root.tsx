@@ -95,6 +95,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:site_name", content: "Ottawa Full Spectrum Home Inspection" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              name: "Ottawa Full Spectrum Home Inspection",
+              url: "https://www.ottawafullspectrumhomeinspection.com/",
+              email: "khoipham@ottawafullspectrumhomeinspection.com",
+              telephone: "+1-753-886-3515",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "29 Cremona Crest",
+                addressLocality: "Ottawa",
+                addressRegion: "ON",
+                addressCountry: "CA",
+              },
+            },
+            {
+              "@type": "WebSite",
+              name: "Ottawa Full Spectrum Home Inspection",
+              url: "https://www.ottawafullspectrumhomeinspection.com/",
+            },
+          ],
+        }),
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

@@ -9,7 +9,9 @@ export const Route = createFileRoute("/trade-referrals")({
       { name: "description", content: "A vetted list of local Ottawa-area trades — roofers, plumbers, electricians, HVAC techs — we trust to fix inspection findings." },
       { property: "og:title", content: "Trade Referrals" },
       { property: "og:description", content: "Trusted local trades to handle your inspection findings." },
+      { property: "og:url", content: "/trade-referrals" },
     ],
+    links: [{ rel: "canonical", href: "/trade-referrals" }],
   }),
   component: TradeReferrals,
 });

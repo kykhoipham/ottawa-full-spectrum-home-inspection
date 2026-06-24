@@ -1,0 +1,14 @@
+# Ottawa Full Spectrum Home Inspection
+
+> Detail-driven home inspections in Ottawa and the National Capital Region. Pre-purchase, pre-listing, new construction, and specialty inspections with same-day photo reports.
+
+## Pages
+
+- [Home](/): Overview of services, coverage area, and what to expect.
+- [Services](/services): Pre-purchase, pre-listing, new construction / PDI, condo, and specialty inspections.
+- [Pricing](/pricing): Flat-rate pricing by square footage for homes, condos, and large properties.
+- [Sample Report](/report-sample): Example of the photo-rich digital inspection report you'll receive.
+- [Inspection Agreement](/agreement): Standard pre-inspection agreement, scope, and terms.
+- [Trade Referrals](/trade-referrals): Vetted local roofers, electricians, plumbers, and HVAC techs.
+- [Book Inspection](/book): Request a home inspection online.
+- [Contact](/contact): Phone, email, and contact form for Khoi Pham.

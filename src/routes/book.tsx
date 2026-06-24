@@ -13,7 +13,9 @@ export const Route = createFileRoute("/book")({
       { name: "description", content: "Request a home inspection in Ottawa. We confirm bookings within 24 hours, often the same day." },
       { property: "og:title", content: "Book Your Home Inspection" },
       { property: "og:description", content: "Request your Ottawa home inspection online." },
+      { property: "og:url", content: "/book" },
     ],
+    links: [{ rel: "canonical", href: "/book" }],
   }),
   component: Book,
 });

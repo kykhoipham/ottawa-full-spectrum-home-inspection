@@ -16,7 +16,7 @@ import inspectorWorking from "@/assets/inspector-working.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ottawa Full Spectrum Home Inspection — Trusted Ottawa Home Inspector" },
+      { title: "Ottawa Full Spectrum Home Inspection — Trusted Inspector" },
       {
         name: "description",
         content:
@@ -28,7 +28,9 @@ export const Route = createFileRoute("/")({
         content:
           "Detail-driven home inspections in Ottawa. Honest reporting, clear photos, answers you can use.",
       },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Home,
 });
