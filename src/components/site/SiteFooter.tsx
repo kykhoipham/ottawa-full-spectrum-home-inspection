@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Leaf } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import logoAsset from "@/assets/logo.jpg.asset.json";
 
 export function SiteFooter() {
   return (
