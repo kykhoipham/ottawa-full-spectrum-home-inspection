@@ -9,7 +9,9 @@ export const Route = createFileRoute("/report-sample")({
       { name: "description", content: "Preview the kind of detailed, photo-rich inspection report you'll receive after your inspection." },
       { property: "og:title", content: "Sample Inspection Report" },
       { property: "og:description", content: "See exactly what our digital inspection report looks like." },
+      { property: "og:url", content: "/report-sample" },
     ],
+    links: [{ rel: "canonical", href: "/report-sample" }],
   }),
   component: ReportSample,
 });
