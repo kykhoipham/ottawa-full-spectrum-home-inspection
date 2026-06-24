@@ -154,7 +154,7 @@ function Book() {
                 <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground">
                   <p.icon className="h-4.5 w-4.5" />
                 </span>
-                <h3 className="mt-3 font-display text-base font-semibold">{p.title}</h3>
+                <h2 className="mt-3 font-display text-base font-semibold">{p.title}</h2>
                 <p className="mt-1 text-sm text-muted-foreground">{p.text}</p>
               </div>
             ))}

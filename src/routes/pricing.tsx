@@ -73,7 +73,7 @@ function Pricing() {
                   Most booked
                 </span>
               )}
-              <h3 className="font-display text-2xl font-semibold">{t.name}</h3>
+              <h2 className="font-display text-2xl font-semibold">{t.name}</h2>
               <p className={`mt-1 text-sm ${t.popular ? "text-cream/75" : "text-muted-foreground"}`}>{t.range}</p>
               <div className="mt-6 flex items-baseline gap-1">
                 <span className="font-display text-5xl font-bold">{t.price}</span>

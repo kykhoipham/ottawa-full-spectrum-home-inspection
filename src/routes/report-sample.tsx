@@ -81,7 +81,7 @@ function ReportSample() {
           {/* Summary findings */}
           <div className="p-8 md:p-12">
             <div className="flex items-center justify-between flex-wrap gap-3">
-              <h3 className="font-display text-2xl font-semibold">Summary of Findings</h3>
+              <h2 className="font-display text-2xl font-semibold">Summary of Findings</h2>
               <div className="flex flex-wrap gap-2 text-xs font-medium">
                 {(["major","monitor","minor"] as const).map((k) => (
                   <span key={k} className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 ring-1 ${sevStyle[k]}`}>
@@ -101,7 +101,7 @@ function ReportSample() {
                     </span>
                     <div className="flex-1">
                       <div className="flex items-center justify-between flex-wrap gap-2">
-                        <h4 className="font-display text-lg font-semibold">{f.area}</h4>
+                        <h3 className="font-display text-lg font-semibold">{f.area}</h3>
                         <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Finding #{idx + 1}</span>
                       </div>
                       <p className="mt-2 text-foreground leading-relaxed">{f.text}</p>

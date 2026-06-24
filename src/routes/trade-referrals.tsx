@@ -51,7 +51,7 @@ function TradeReferrals() {
               <span className="grid h-11 w-11 place-items-center rounded-xl bg-accent/40 text-primary">
                 <t.icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-4 font-display text-lg font-semibold">{t.name}</h3>
+              <h2 className="mt-4 font-display text-lg font-semibold">{t.name}</h2>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{t.text}</p>
             </article>
           ))}
