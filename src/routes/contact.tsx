@@ -120,7 +120,7 @@ function ContactCard({ icon: Icon, title, body, note }: { icon: any; title: stri
       <span className="grid h-10 w-10 place-items-center rounded-lg bg-accent/40 text-primary">
         <Icon className="h-4.5 w-4.5" />
       </span>
-      <h3 className="mt-4 font-display text-lg font-semibold">{title}</h3>
+      <h2 className="mt-4 font-display text-lg font-semibold">{title}</h2>
       <div className="mt-1 text-foreground">{body}</div>
       {note && <p className="mt-2 text-xs text-muted-foreground">{note}</p>}
     </div>
