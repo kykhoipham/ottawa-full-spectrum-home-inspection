@@ -121,7 +121,7 @@ function ReportSample() {
             </div>
 
             <p className="mt-8 text-sm text-muted-foreground italic">
-              This is an excerpt. Full reports include 80–120 findings across 14 categories,
+              This is an example. Full reports include 80–120 findings across 14 categories,
               annotated photos, repair priority guidance, and a summary call from the inspector.
             </p>
           </div>
