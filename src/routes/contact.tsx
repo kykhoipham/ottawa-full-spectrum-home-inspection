@@ -50,9 +50,7 @@ const schema = z.object({
 });
 
 function Contact() {
-  const [loading, setLoading] = useState(false);
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = {
@@ -67,19 +65,17 @@ function Contact() {
       toast.error(parsed.error.issues[0]?.message ?? "Please check the form");
       return;
     }
-    setLoading(true);
-    const { error } = await supabase.from("contact_messages").insert({
-      full_name: parsed.data.full_name,
-      email: parsed.data.email,
-      phone: parsed.data.phone || null,
-      subject: parsed.data.subject || null,
-      message: parsed.data.message,
-    });
-    setLoading(false);
-    if (error) {
-      toast.error("Could not send your message. Please call us at (753) 886-3515.");
-      return;
-    }
+    const subject = `Contact from ${parsed.data.full_name}${parsed.data.subject ? " — " + parsed.data.subject : ""}`;
+    const body = [
+      `Name: ${parsed.data.full_name}`,
+      `Email: ${parsed.data.email}`,
+      `Phone: ${parsed.data.phone || "N/A"}`,
+      `Subject: ${parsed.data.subject || "N/A"}`,
+      "",
+      "Message:",
+      parsed.data.message,
+    ].join("\n");
+    window.location.href = `mailto:khoipham@ottawafullspectrumhomeinspection.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     toast.success("Message sent! We'll be in touch within one business day.");
     (e.target as HTMLFormElement).reset();
   }
