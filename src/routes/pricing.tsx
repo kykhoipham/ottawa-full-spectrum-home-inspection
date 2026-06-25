@@ -22,7 +22,7 @@ const TIERS = [
     range: "Up to 1,500 sq ft",
     price: "$425",
     desc: "Best for condominium units, stacked towns, and smaller townhomes.",
-    features: ["Full in-suite inspection", "Common-element observations", "Photo report same day", "30-minute walk-through call"],
+    features: ["Full in-suite inspection", "Common-element observations", "Photo report within 24 hours", "30-minute walk-through call"],
   },
   {
     name: "Standard Home",
