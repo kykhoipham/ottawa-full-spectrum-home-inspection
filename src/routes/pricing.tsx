@@ -55,7 +55,7 @@ function Pricing() {
     <>
       <PageHeader
         eyebrow="Pricing"
-        title="Flat-rate pricing. Same-day reports."
+        title="Flat-rate pricing. 24-hour reports."
         description="Inspection fees are based on the size and complexity of the property. Final pricing is confirmed when you book — never any hidden charges."
       />
 
