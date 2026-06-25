@@ -31,7 +31,7 @@ const PRIMARY = [
     points: ["PDI walk-through", "45-day deficiency list", "1-year Tarion review", "Builder follow-up checklist"] },
   { icon: Building2, title: "Condo & Townhouse",
     text: "Unit-focused inspection covering interior systems, balconies, and any in-suite mechanical equipment.",
-    points: ["In-suite systems", "Common-element review", "Moisture & finishes", "Status certificate guidance"] },
+    points: ["In-suite systems", "Common-element review", "Moisture & plumbing", "Status certificate guidance"] },
 ];
 
 const SPECIALTY = [
