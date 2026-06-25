@@ -143,7 +143,7 @@ function Book() {
             {[
               { icon: Clock, title: "Quick confirmation", text: "Most requests are confirmed within a few hours during business days." },
               { icon: ShieldCheck, title: "Fully insured & trained", text: "InterNACHI-trained inspector, fully insured, with E&O coverage." },
-              { icon: FileCheck, title: "Same-day report", text: "Photo-rich digital report delivered the day of your inspection." },
+              { icon: FileCheck, title: "24-hour report", text: "Photo-rich digital report delivered within 24 hours of your inspection." },
             ].map((p) => (
               <div key={p.title} className="rounded-2xl bg-accent/30 p-5 ring-1 ring-border">
                 <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground">
