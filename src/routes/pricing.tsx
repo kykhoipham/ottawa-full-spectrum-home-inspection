@@ -20,14 +20,14 @@ const TIERS = [
   {
     name: "Condo / Townhome",
     range: "Up to 1,500 sq ft",
-    price: "$425",
+    price: "from $550",
     desc: "Best for condominium units, stacked towns, and smaller townhomes.",
-    features: ["Full in-suite inspection", "Common-element observations", "Photo report within 24 hours", "30-minute walk-through call"],
+    features: ["Full in-suite inspection", "Common-element observations", "Photo report within 24 hours", "Thirty-Minute Evaluation of Deficiency"],
   },
   {
     name: "Standard Home",
     range: "1,500 – 2,500 sq ft",
-    price: "$525",
+    price: "from $650",
     popular: true,
     desc: "Our most common inspection — single-family detached or larger townhome.",
     features: ["150-point full inspection", "Thermal imaging included", "Moisture meter testing", "Annotated digital report"],
@@ -35,7 +35,7 @@ const TIERS = [
   {
     name: "Large / Custom",
     range: "2,500+ sq ft",
-    price: "from $650",
+    price: "from $750",
     desc: "Larger detached homes, custom builds, and properties with additional structures.",
     features: ["Extended inspection time", "Outbuildings & garage", "Detached structures", "Detailed major-systems review"],
   },
