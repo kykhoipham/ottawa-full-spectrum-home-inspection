@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Pre-purchase, pre-listing, and new construction home inspections across Ottawa and the National Capital Region. Detailed reports, same-day delivery.",
+          "Pre-purchase, pre-listing, and new construction home inspections across Ottawa and the National Capital Region. Detailed reports, 24-hour delivery.",
       },
       { property: "og:title", content: "Ottawa Full Spectrum Home Inspection" },
       {
