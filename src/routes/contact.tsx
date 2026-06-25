@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { z } from "zod";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { PageHeader } from "@/components/site/PageHeader";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -50,9 +52,12 @@ const schema = z.object({
 });
 
 function Contact() {
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const [submitting, setSubmitting] = useState(false);
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const data = {
       full_name: String(fd.get("full_name") || ""),
       email: String(fd.get("email") || ""),
@@ -65,19 +70,38 @@ function Contact() {
       toast.error(parsed.error.issues[0]?.message ?? "Please check the form");
       return;
     }
-    const subject = `Contact from ${parsed.data.full_name}${parsed.data.subject ? " — " + parsed.data.subject : ""}`;
-    const body = [
-      `Name: ${parsed.data.full_name}`,
-      `Email: ${parsed.data.email}`,
-      `Phone: ${parsed.data.phone || "N/A"}`,
-      `Subject: ${parsed.data.subject || "N/A"}`,
-      "",
-      "Message:",
-      parsed.data.message,
-    ].join("\n");
-    window.location.href = `mailto:khoipham@ottawafullspectrumhomeinspection.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    toast.success("Message sent! We'll be in touch within one business day.");
-    (e.target as HTMLFormElement).reset();
+
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("contact_messages").insert({
+        full_name: parsed.data.full_name,
+        email: parsed.data.email,
+        phone: parsed.data.phone || null,
+        subject: parsed.data.subject || null,
+        message: parsed.data.message,
+      });
+      if (error) throw error;
+
+      const subject = `Contact from ${parsed.data.full_name}${parsed.data.subject ? " — " + parsed.data.subject : ""}`;
+      const body = [
+        `Name: ${parsed.data.full_name}`,
+        `Email: ${parsed.data.email}`,
+        `Phone: ${parsed.data.phone || "N/A"}`,
+        `Subject: ${parsed.data.subject || "N/A"}`,
+        "",
+        "Message:",
+        parsed.data.message,
+      ].join("\n");
+
+      toast.success("Message saved! Opening your email to forward a copy to Khoi.");
+      form.reset();
+      window.location.href = `mailto:khoipham@ottawafullspectrumhomeinspection.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    } catch (err) {
+      console.error(err);
+      toast.error("Sorry — we couldn't save your message. Please try again or call us.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -120,10 +144,11 @@ function Contact() {
 
             <button
               type="submit"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-glow transition-colors"
+              disabled={submitting}
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-glow transition-colors disabled:opacity-60"
             >
-              <Send className="h-4 w-4" />
-              Send message
+              {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+              {submitting ? "Sending…" : "Send message"}
             </button>
           </form>
         </div>
