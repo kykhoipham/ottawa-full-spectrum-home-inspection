@@ -107,7 +107,7 @@ function Home() {
               Every inspection follows a 150-point checklist covering structure,
               roofing, plumbing, electrical, HVAC, insulation, and more. You'll get
               a digital report with photos, severity ratings, and recommended next
-              steps — emailed the same day.
+              steps — emailed within 24 hours.
             </p>
 
             <ul className="mt-8 space-y-3">
