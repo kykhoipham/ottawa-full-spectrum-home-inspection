@@ -44,7 +44,7 @@ const TIERS = [
 const ADDONS = [
   { name: "Thermal imaging (extended)", price: "$95" },
   { name: "Pre-Delivery Inspection (PDI)", price: "$550" },
-  { name: "1-Year Tarion warranty inspection", price: "$650" },
+  { name: "45 days or Year-end Tarion warranty inspection", price: "$650" },
   { name: "Re-inspection of repairs", price: "$175" },
   { name: "Rural / outside NCR travel", price: "$0.75/km" },
   { name: "Vacant / winterized home check", price: "$225" },
