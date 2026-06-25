@@ -115,7 +115,7 @@ function Home() {
                 "Aerial inspection of the roof using a drone",
                 "Thermal imaging & moisture testing included",
                 "Same-day digital report with annotated photos",
-                "Phone walk-through of findings after every job",
+                "Review onsite findings after inspection",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-3">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 text-secondary shrink-0" />
