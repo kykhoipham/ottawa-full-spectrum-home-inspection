@@ -37,8 +37,9 @@ const PROPERTY_TYPES = ["Detached", "Semi-detached", "Townhouse", "Condo / Apart
 
 function Book() {
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = Object.fromEntries(fd.entries()) as Record<string, string>;
@@ -47,23 +48,29 @@ function Book() {
       toast.error(parsed.error.issues[0]?.message ?? "Please complete the required fields");
       return;
     }
-    const subject = `Inspection Request from ${parsed.data.full_name}`;
-    const body = [
-      `Name: ${parsed.data.full_name}`,
-      `Email: ${parsed.data.email}`,
-      `Phone: ${parsed.data.phone}`,
-      `Property Address: ${parsed.data.property_address}`,
-      `Property Type: ${parsed.data.property_type || "N/A"}`,
-      `Square Footage: ${parsed.data.square_footage || "N/A"}`,
-      `Preferred Date: ${parsed.data.preferred_date || "N/A"}`,
-      `Preferred Time: ${parsed.data.preferred_time || "N/A"}`,
-      `Inspection Type: ${parsed.data.inspection_type || "N/A"}`,
-      `Notes: ${parsed.data.notes || "N/A"}`,
-    ].join("\n");
-    window.location.href = `mailto:khoipham@ottawafullspectrumhomeinspection.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setDone(true);
-    toast.success("Request received! We'll confirm your slot within 24 hours.");
-    (e.target as HTMLFormElement).reset();
+    setLoading(true);
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-booking-email`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          },
+          body: JSON.stringify(parsed.data),
+        }
+      );
+      const json = await res.json();
+      if (!res.ok || json.error) throw new Error(json.error ?? "Request failed");
+      setDone(true);
+      toast.success("Request sent! We'll confirm your slot within 24 hours.");
+      (e.target as HTMLFormElement).reset();
+    } catch {
+      toast.error("Something went wrong — please call us at (753) 886-3515 or try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -131,10 +138,11 @@ function Book() {
 
               <button
                 type="submit"
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-glow transition-colors sm:w-auto"
+                disabled={loading}
+                className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-glow transition-colors sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <CalendarCheck className="h-4 w-4" />
-                Request my inspection
+                {loading ? "Sending…" : "Request my inspection"}
               </button>
             </form>
           )}
