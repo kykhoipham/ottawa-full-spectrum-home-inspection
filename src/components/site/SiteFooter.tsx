@@ -11,7 +11,7 @@ export function SiteFooter() {
             <img
               src={logoAsset.url}
               alt="Ottawa Full Spectrum Home Inspection logo"
-              className="h-11 w-auto"
+              className="h-[62px] w-auto"
             />
             <span className="font-display text-lg font-semibold tracking-tight">
               Ottawa Full Spectrum Home Inspection
