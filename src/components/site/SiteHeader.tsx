@@ -24,7 +24,7 @@ export function SiteHeader() {
           <img
             src={logoAsset.url}
             alt="Ottawa Full Spectrum Home Inspection logo"
-            className="h-9 w-auto"
+            className="h-11 w-auto"
           />
           <span className="font-display text-lg sm:text-xl font-semibold text-foreground leading-tight max-w-[220px] sm:max-w-[320px]">
             Ottawa Full Spectrum Home Inspection
