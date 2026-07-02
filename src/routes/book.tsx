@@ -126,7 +126,7 @@ function Book() {
               </div>
 
               <label className="mt-6 block">
-                <span className="text-sm font-medium text-foreground">Anything else we should know?</span>
+                <span className="text-sm font-medium text-foreground">Could you share a few details about the house?</span>
                 <textarea
                   name="notes"
                   rows={5}
