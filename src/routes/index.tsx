@@ -11,7 +11,7 @@ import {
   Phone,
 } from "lucide-react";
 import heroHome from "@/assets/hero-home.jpg";
-import inspectorWorking from "@/assets/inspector-working.jpg";
+import inspectorWorking from "@/assets/inspector-window.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -127,12 +127,12 @@ function Home() {
 
           <div className="relative">
             <img
-              src={inspectorWorking}
+              src={inspectorWorking.url}
               alt="Home inspector walking through findings with a client"
               width={1280}
               height={960}
               loading="lazy"
-              className="rounded-2xl shadow-elegant aspect-[4/3] object-cover w-full"
+              className="rounded-2xl shadow-elegant aspect-[4/3] object-contain w-full bg-muted p-4"
             />
             <div className="absolute -bottom-6 -left-6 hidden md:block rounded-2xl bg-card p-5 shadow-elegant ring-1 ring-border max-w-xs">
               <div className="flex items-center gap-1">
