@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   ShieldCheck,
   Camera,
@@ -11,7 +12,25 @@ import {
   Phone,
 } from "lucide-react";
 import heroHome from "@/assets/hero-home.jpg";
-import inspectorWorking from "@/assets/inspector-window.jpg.asset.json";
+import inspector1 from "@/assets/inspector-window.jpg.asset.json";
+import inspector2 from "@/assets/inspector-014.jpg.asset.json";
+import inspector3 from "@/assets/inspector-016-2.jpg.asset.json";
+import inspector4 from "@/assets/inspector-018.jpg.asset.json";
+import inspector5 from "@/assets/inspector-020.jpg.asset.json";
+import inspector6 from "@/assets/inspector-003.jpg.asset.json";
+import inspector7 from "@/assets/inspector-004.jpg.asset.json";
+import inspector8 from "@/assets/inspector-010.jpg.asset.json";
+
+const inspectorImages = [
+  inspector1,
+  inspector2,
+  inspector3,
+  inspector4,
+  inspector5,
+  inspector6,
+  inspector7,
+  inspector8,
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,6 +55,11 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const [slide, setSlide] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setSlide((s) => (s + 1) % inspectorImages.length), 4000);
+    return () => clearInterval(id);
+  }, []);
   return (
     <>
       {/* Hero */}
@@ -126,14 +150,21 @@ function Home() {
           </div>
 
           <div className="relative">
-            <img
-              src={inspectorWorking.url}
-              alt="Home inspector walking through findings with a client"
-              width={1280}
-              height={960}
-              loading="lazy"
-              className="rounded-2xl shadow-elegant aspect-[4/3] object-contain w-full bg-muted p-4"
-            />
+            <div className="rounded-2xl shadow-elegant aspect-[4/3] w-full bg-muted p-4 overflow-hidden">
+              <div className="relative h-full w-full rounded-xl overflow-hidden">
+                {inspectorImages.map((img, i) => (
+                  <img
+                    key={img.url}
+                    src={img.url}
+                    alt="Home inspector at work"
+                    width={1280}
+                    height={960}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${i === slide ? "opacity-100" : "opacity-0"}`}
+                  />
+                ))}
+              </div>
+            </div>
             <div className="absolute -bottom-6 -left-6 hidden md:block rounded-2xl bg-card p-5 shadow-elegant ring-1 ring-border max-w-xs">
               <div className="flex items-center gap-1">
                 {[...Array(5)].map((_, i) => (
