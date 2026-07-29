@@ -82,27 +82,30 @@ function Contact() {
       });
       if (error) throw error;
 
-      const subject = `Contact from ${parsed.data.full_name}${parsed.data.subject ? " — " + parsed.data.subject : ""}`;
-      const body = [
-        `Name: ${parsed.data.full_name}`,
-        `Email: ${parsed.data.email}`,
-        `Phone: ${parsed.data.phone || "N/A"}`,
-        `Subject: ${parsed.data.subject || "N/A"}`,
-        "",
-        "Message:",
-        parsed.data.message,
-      ].join("\n");
+      const res = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-booking-email`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          },
+          body: JSON.stringify({ type: "contact", ...parsed.data }),
+        }
+      );
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || json.error) throw new Error(json.error ?? "Send failed");
 
-      toast.success("Message saved! Opening your email to forward a copy to Khoi.");
+      toast.success("Message sent! Khoi will get back to you shortly.");
       form.reset();
-      window.location.href = `mailto:info@OFShomeinspection.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     } catch (err) {
       console.error(err);
-      toast.error("Sorry — we couldn't save your message. Please try again or call us.");
+      toast.error("Sorry — we couldn't send your message. Please try again or call us.");
     } finally {
       setSubmitting(false);
     }
   }
+
 
   return (
     <>
