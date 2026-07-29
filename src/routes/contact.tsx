@@ -4,7 +4,7 @@ import { z } from "zod";
 import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { PageHeader } from "@/components/site/PageHeader";
-import { supabase } from "@/integrations/supabase/client";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -73,15 +73,6 @@ function Contact() {
 
     setSubmitting(true);
     try {
-      const { error } = await supabase.from("contact_messages").insert({
-        full_name: parsed.data.full_name,
-        email: parsed.data.email,
-        phone: parsed.data.phone || null,
-        subject: parsed.data.subject || null,
-        message: parsed.data.message,
-      });
-      if (error) throw error;
-
       const res = await fetch(
         `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-booking-email`,
         {
