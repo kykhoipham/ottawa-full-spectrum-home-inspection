@@ -35,7 +35,7 @@ const inspectorImages = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ottawa Full Spectrum Home Inspection — Trusted Inspector" },
+      { title: "Ottawa Full Spectrum Home Inspection — Tarion Expert" },
       {
         name: "description",
         content:
