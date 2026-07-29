@@ -9,6 +9,16 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+function escapeHtml(v: unknown) {
+  return String(v ?? "")
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+function row(label: string, value: unknown) {
+  return `<tr><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#6b7280;font-size:13px;width:40%">${label}</td><td style="padding:8px 0;border-bottom:1px solid #e5e7eb">${escapeHtml(value) || "N/A"}</td></tr>`;
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -16,34 +26,63 @@ serve(async (req) => {
 
   try {
     const body = await req.json();
-    const {
-      full_name, email, phone, property_address,
-      property_type, square_footage, preferred_date,
-      preferred_time, inspection_type, notes,
-    } = body;
+    const isContact = body.type === "contact";
 
-    const html = `
-      <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a">
-        <div style="background:#1a3a2a;padding:24px 32px;border-radius:8px 8px 0 0">
-          <h1 style="color:#ffffff;margin:0;font-size:20px">🏠 New Inspection Request</h1>
-          <p style="color:#a0c4a0;margin:4px 0 0;font-size:14px">${property_address}</p>
-        </div>
-        <div style="background:#f9fafb;padding:32px;border-radius:0 0 8px 8px;border:1px solid #e5e7eb;border-top:none">
-          <table style="width:100%;border-collapse:collapse">
-            <tr><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#6b7280;font-size:13px;width:40%">Name</td><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;font-weight:600">${full_name}</td></tr>
-            <tr><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#6b7280;font-size:13px">Email</td><td style="padding:8px 0;border-bottom:1px solid #e5e7eb"><a href="mailto:${email}" style="color:#1a3a2a">${email}</a></td></tr>
-            <tr><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#6b7280;font-size:13px">Phone</td><td style="padding:8px 0;border-bottom:1px solid #e5e7eb">${phone}</td></tr>
-            <tr><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#6b7280;font-size:13px">Property Address</td><td style="padding:8px 0;border-bottom:1px solid #e5e7eb">${property_address}</td></tr>
-            <tr><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#6b7280;font-size:13px">Property Type</td><td style="padding:8px 0;border-bottom:1px solid #e5e7eb">${property_type || "N/A"}</td></tr>
-            <tr><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#6b7280;font-size:13px">Square Footage</td><td style="padding:8px 0;border-bottom:1px solid #e5e7eb">${square_footage || "N/A"}</td></tr>
-            <tr><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#6b7280;font-size:13px">Preferred Date</td><td style="padding:8px 0;border-bottom:1px solid #e5e7eb">${preferred_date || "N/A"}</td></tr>
-            <tr><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#6b7280;font-size:13px">Preferred Time</td><td style="padding:8px 0;border-bottom:1px solid #e5e7eb">${preferred_time || "N/A"}</td></tr>
-            <tr><td style="padding:8px 0;border-bottom:1px solid #e5e7eb;color:#6b7280;font-size:13px">Inspection Type</td><td style="padding:8px 0;border-bottom:1px solid #e5e7eb">${inspection_type || "N/A"}</td></tr>
-            <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;vertical-align:top">Notes</td><td style="padding:8px 0">${notes || "None"}</td></tr>
-          </table>
-          <p style="margin:24px 0 0;font-size:12px;color:#9ca3af">Sent from ottawafullspectrumhomeinspection.com booking form</p>
-        </div>
-      </div>`;
+    let subject = "";
+    let html = "";
+    const replyTo = body.email;
+
+    if (isContact) {
+      const { full_name, email, phone, subject: subj, message } = body;
+      subject = `📩 New Contact Message — ${full_name}${subj ? " · " + subj : ""}`;
+      html = `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a">
+          <div style="background:#1a3a2a;padding:24px 32px;border-radius:8px 8px 0 0">
+            <h1 style="color:#ffffff;margin:0;font-size:20px">📩 New Contact Message</h1>
+            <p style="color:#a0c4a0;margin:4px 0 0;font-size:14px">${escapeHtml(subj || "No subject")}</p>
+          </div>
+          <div style="background:#f9fafb;padding:32px;border-radius:0 0 8px 8px;border:1px solid #e5e7eb;border-top:none">
+            <table style="width:100%;border-collapse:collapse">
+              ${row("Name", full_name)}
+              ${row("Email", email)}
+              ${row("Phone", phone)}
+              ${row("Subject", subj)}
+            </table>
+            <h2 style="margin:24px 0 8px;font-size:15px;color:#1a3a2a">Message</h2>
+            <div style="background:#ffffff;padding:16px;border:1px solid #e5e7eb;border-radius:6px;white-space:pre-wrap;font-size:14px;line-height:1.5">${escapeHtml(message)}</div>
+            <p style="margin:24px 0 0;font-size:12px;color:#9ca3af">Sent from ottawafullspectrumhomeinspection.com contact form</p>
+          </div>
+        </div>`;
+    } else {
+      const {
+        full_name, email, phone, property_address,
+        property_type, square_footage, preferred_date,
+        preferred_time, inspection_type, notes,
+      } = body;
+      subject = `🏠 New Inspection Request — ${property_address}`;
+      html = `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a">
+          <div style="background:#1a3a2a;padding:24px 32px;border-radius:8px 8px 0 0">
+            <h1 style="color:#ffffff;margin:0;font-size:20px">🏠 New Inspection Request</h1>
+            <p style="color:#a0c4a0;margin:4px 0 0;font-size:14px">${escapeHtml(property_address)}</p>
+          </div>
+          <div style="background:#f9fafb;padding:32px;border-radius:0 0 8px 8px;border:1px solid #e5e7eb;border-top:none">
+            <table style="width:100%;border-collapse:collapse">
+              ${row("Name", full_name)}
+              ${row("Email", email)}
+              ${row("Phone", phone)}
+              ${row("Property Address", property_address)}
+              ${row("Property Type", property_type)}
+              ${row("Square Footage", square_footage)}
+              ${row("Preferred Date", preferred_date)}
+              ${row("Preferred Time", preferred_time)}
+              ${row("Inspection Type", inspection_type)}
+              <tr><td style="padding:8px 0;color:#6b7280;font-size:13px;vertical-align:top">Notes</td><td style="padding:8px 0">${escapeHtml(notes) || "None"}</td></tr>
+            </table>
+            <p style="margin:24px 0 0;font-size:12px;color:#9ca3af">Sent from ottawafullspectrumhomeinspection.com booking form</p>
+          </div>
+        </div>`;
+    }
 
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -54,8 +93,8 @@ serve(async (req) => {
       body: JSON.stringify({
         from: FROM_EMAIL,
         to: [TO_EMAIL],
-        reply_to: email,
-        subject: `🏠 New Inspection Request — ${property_address}`,
+        reply_to: replyTo,
+        subject,
         html,
       }),
     });
