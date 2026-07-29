@@ -43,7 +43,7 @@ function ReportSample() {
         description="Photo-rich, severity-rated, and written in plain English. Here's a slice of what arrives in your inbox the same day as your inspection."
       >
         <a
-          href="mailto:khoipham@ottawafullspectrumhomeinspection.com?subject=Request%20Full%20Sample%20Report"
+          href="mailto:info@OFShomeinspection.com?subject=Request%20Full%20Sample%20Report"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-glow"
         >
           <Mail className="h-4 w-4" /> Request full sample PDF

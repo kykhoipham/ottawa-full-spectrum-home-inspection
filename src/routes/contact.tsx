@@ -25,7 +25,7 @@ export const Route = createFileRoute("/contact")({
           name: "Ottawa Full Spectrum Home Inspection",
           image: "https://www.ottawafullspectrumhomeinspection.com/logo.png",
           telephone: "+1-753-886-3515",
-          email: "khoipham@ottawafullspectrumhomeinspection.com",
+          email: "info@OFShomeinspection.com",
           url: "https://www.ottawafullspectrumhomeinspection.com/",
           address: {
             "@type": "PostalAddress",
@@ -95,7 +95,7 @@ function Contact() {
 
       toast.success("Message saved! Opening your email to forward a copy to Khoi.");
       form.reset();
-      window.location.href = `mailto:khoipham@ottawafullspectrumhomeinspection.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = `mailto:info@OFShomeinspection.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     } catch (err) {
       console.error(err);
       toast.error("Sorry — we couldn't save your message. Please try again or call us.");
@@ -116,7 +116,7 @@ function Contact() {
         <div className="grid gap-12 lg:grid-cols-[2fr_3fr]">
           <aside className="space-y-6">
             <ContactCard icon={Phone} title="Call or text" body={<a className="hover:text-primary" href="tel:+17538863515">(753) 886-3515</a>} note="Mon–Sat, 7am – 8pm ET" />
-            <ContactCard icon={Mail} title="Email" body={<a className="hover:text-primary break-all" href="mailto:khoipham@ottawafullspectrumhomeinspection.com">khoipham@ottawafullspectrumhomeinspection.com</a>} note="Replies within 1 business day" />
+            <ContactCard icon={Mail} title="Email" body={<a className="hover:text-primary break-all" href="mailto:info@OFShomeinspection.com">info@OFShomeinspection.com</a>} note="Replies within 1 business day" />
             <ContactCard icon={MapPin} title="Service area" body="Ottawa, Kanata, Orleans, Barrhaven, Nepean, Stittsville, Gatineau & surrounding NCR." note="29 Cremona Crest, Ottawa, ON" />
           </aside>
 

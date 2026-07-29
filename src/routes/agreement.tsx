@@ -57,7 +57,7 @@ function Agreement() {
       >
         <div className="flex flex-wrap gap-3">
           <a
-            href="mailto:khoipham@ottawafullspectrumhomeinspection.com?subject=Request%20Inspection%20Agreement%20PDF"
+            href="mailto:info@OFShomeinspection.com?subject=Request%20Inspection%20Agreement%20PDF"
             className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-glow"
           >
             <Download className="h-4 w-4" /> Request PDF copy
