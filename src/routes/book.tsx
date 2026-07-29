@@ -150,7 +150,7 @@ function Book() {
           <aside className="space-y-4 lg:sticky lg:top-24 self-start">
             {[
               { icon: Clock, title: "Quick confirmation", text: "Most requests are confirmed within a few hours during business days." },
-              { icon: ShieldCheck, title: "Fully insured & trained", text: "InterNACHI-trained inspector, fully insured, with E&O coverage." },
+              { icon: ShieldCheck, title: "Tarion & CPG guideline\u00a0", text: "The report will be prepared in a format accepted by Tarion and will be easy to understand." },
               { icon: FileCheck, title: "24-hour report", text: "Photo-rich digital report delivered within 24 hours of your inspection." },
             ].map((p) => (
               <div key={p.title} className="rounded-2xl bg-accent/30 p-5 ring-1 ring-border">
