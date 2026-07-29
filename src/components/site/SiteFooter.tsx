@@ -46,8 +46,8 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a className="flex items-center gap-2 text-primary-foreground/85 hover:text-primary-foreground break-all" href="mailto:khoipham@ottawafullspectrumhomeinspection.com">
-                <Mail className="h-4 w-4 shrink-0" /> khoipham@ottawafullspectrumhomeinspection.com
+              <a className="flex items-center gap-2 text-primary-foreground/85 hover:text-primary-foreground break-all" href="mailto:info@OFShomeinspection.com">
+                <Mail className="h-4 w-4 shrink-0" /> info@OFShomeinspection.com
               </a>
             </li>
           </ul>

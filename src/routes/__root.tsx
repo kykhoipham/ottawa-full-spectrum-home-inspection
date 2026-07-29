@@ -113,7 +113,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@type": "Organization",
               name: "Ottawa Full Spectrum Home Inspection",
               url: "https://www.ottawafullspectrumhomeinspection.com/",
-              email: "khoipham@ottawafullspectrumhomeinspection.com",
+              email: "info@OFShomeinspection.com",
               telephone: "+1-753-886-3515",
               address: {
                 "@type": "PostalAddress",
