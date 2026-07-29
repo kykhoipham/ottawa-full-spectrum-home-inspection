@@ -32,7 +32,7 @@ const schema = z.object({
   notes: z.string().max(2000).optional(),
 });
 
-const INSPECTION_TYPES = ["Pre-Purchase", "Pre-Listing", "New Construction / PDI", "1-Year Tarion Warranty", "Condo / Townhouse", "Other"];
+const INSPECTION_TYPES = ["Pre-Purchase", "Pre-Listing", "New Construction / PDI", "Tarion Warranty", "Condo / Townhouse", "Other"];
 const PROPERTY_TYPES = ["Detached", "Semi-detached", "Townhouse", "Condo / Apartment", "Multi-unit", "Other"];
 
 function Book() {
