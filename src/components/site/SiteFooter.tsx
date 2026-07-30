@@ -17,14 +17,14 @@ export function SiteFooter() {
               Ottawa Full Spectrum Home Inspection
             </span>
           </div>
-          <p className="mt-4 max-w-md text-sm text-primary-foreground/75 leading-relaxed">
+          <p className="mt-4 max-w-md text-sm text-primary-foreground/90 leading-relaxed">
             Detail-driven home inspections across the National Capital Region.
             Honest reporting, clear photos, and answers you can actually use.
           </p>
         </div>
 
         <div>
-          <h4 className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground/60">
+          <h4 className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground/80">
             Visit
           </h4>
           <ul className="mt-4 space-y-2 text-sm">
@@ -36,7 +36,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground/60">
+          <h4 className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground/80">
             Contact
           </h4>
           <ul className="mt-4 space-y-2 text-sm">
@@ -55,7 +55,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-primary-foreground/10">
-        <div className="container-prose flex flex-col gap-3 py-6 text-xs text-primary-foreground/60 md:flex-row md:items-center md:justify-between">
+        <div className="container-prose flex flex-col gap-3 py-6 text-xs text-primary-foreground/80 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Ottawa Full Spectrum Home Inspection. All rights reserved.</p>
           <div className="flex gap-5">
             <Link to="/agreement" className="hover:text-primary-foreground">Inspection Agreement</Link>

@@ -80,28 +80,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ottawa Full Spectrum Home Inspection" },
-      {
-        name: "description",
-        content:
-          "Detail-driven home inspections in Ottawa and the National Capital Region. Honest reporting, clear photos, and answers you can act on.",
-      },
       { name: "author", content: "Ottawa Full Spectrum Home Inspection" },
-      { property: "og:title", content: "Ottawa Full Spectrum Home Inspection" },
-      {
-        property: "og:description",
-        content:
-          "Professional pre-purchase, pre-listing, and new construction inspections across Ottawa.",
-      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:site_name", content: "Ottawa Full Spectrum Home Inspection" },
-      { name: "twitter:title", content: "Ottawa Full Spectrum Home Inspection" },
-      { name: "description", content: "Home Inspection Hub is a professional website for home inspection businesses." },
-      { property: "og:description", content: "Home Inspection Hub is a professional website for home inspection businesses." },
-      { name: "twitter:description", content: "Home Inspection Hub is a professional website for home inspection businesses." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7fca91d1-1ff7-495b-ade0-32eb68446bea/id-preview-95ca581d--c7276d0c-4475-4503-8301-060957546c5e.lovable.app-1782399416019.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7fca91d1-1ff7-495b-ade0-32eb68446bea/id-preview-95ca581d--c7276d0c-4475-4503-8301-060957546c5e.lovable.app-1782399416019.png" },
     ],
     scripts: [
       {
@@ -110,11 +92,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "Organization",
+              "@type": "HomeAndConstructionBusiness",
+              "@id": "https://ottawa-full-spectrum-home-inspection.lovable.app/#business",
               name: "Ottawa Full Spectrum Home Inspection",
-              url: "https://www.ottawafullspectrumhomeinspection.com/",
+              url: "https://ottawa-full-spectrum-home-inspection.lovable.app/",
               email: "info@OFShomeinspection.com",
               telephone: "+1-753-886-3515",
+              areaServed: "Ottawa, Ontario, Canada",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "29 Cremona Crest",
@@ -126,7 +110,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             {
               "@type": "WebSite",
               name: "Ottawa Full Spectrum Home Inspection",
-              url: "https://www.ottawafullspectrumhomeinspection.com/",
+              url: "https://ottawa-full-spectrum-home-inspection.lovable.app/",
             },
           ],
         }),

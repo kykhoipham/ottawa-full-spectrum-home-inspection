@@ -10,7 +10,7 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const BASE_URL = "https://www.ottawafullspectrumhomeinspection.com";
+        const BASE_URL = "https://ottawa-full-spectrum-home-inspection.lovable.app";
         const entries: SitemapEntry[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/services", changefreq: "monthly", priority: "0.9" },

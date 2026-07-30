@@ -70,8 +70,12 @@ function Home() {
             alt="Beautiful Ottawa home at golden hour"
             width={1920}
             height={1280}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover"
           />
+
           <div className="absolute inset-0 bg-gradient-overlay" />
         </div>
 
@@ -82,7 +86,7 @@ function Home() {
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-cream text-balance max-w-3xl leading-[1.05]">
             See the whole picture before you sign.
           </h1>
-          <p className="mt-6 max-w-xl text-lg md:text-xl text-cream/85 leading-relaxed">
+          <p className="mt-6 max-w-xl text-lg md:text-xl text-cream/95 leading-relaxed">
             Ottawa Full Spectrum Home Inspection that catches what listing photos miss —
             from foundation to roofline, with photo-rich reports delivered within 24 hours.
           </p>
@@ -110,7 +114,7 @@ function Home() {
             ].map((s) => (
               <div key={s.v} className="border-l-2 border-cream/30 pl-4">
                 <div className="font-display text-2xl md:text-3xl font-bold text-cream">{s.k}</div>
-                <div className="mt-1 text-xs uppercase tracking-wider text-cream/70">{s.v}</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-cream/90">{s.v}</div>
               </div>
             ))}
           </div>
@@ -229,7 +233,7 @@ function Home() {
             <h2 className="font-display text-3xl md:text-4xl font-semibold text-cream text-balance">
               Ready for a home inspection done right?
             </h2>
-            <p className="mt-4 text-cream/85 text-lg">
+            <p className="mt-4 text-cream/95 text-lg">
               Most inspections book within 48 hours. Tell us about the property and
               we'll confirm your slot.
             </p>
