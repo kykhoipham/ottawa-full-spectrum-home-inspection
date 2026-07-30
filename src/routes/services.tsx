@@ -15,6 +15,35 @@ export const Route = createFileRoute("/services")({
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: [
+            ["Pre-Purchase Inspection", "A complete top-to-bottom assessment so you know what you're buying, including structural, mechanical, and safety review with photo report."],
+            ["Pre-Listing Inspection", "Identify items to repair, disclose, or price around before going to market."],
+            ["New Construction & PDI", "Pre-Delivery Inspection, 45-day, and one-year Tarion warranty inspections."],
+            ["Condo & Townhouse Inspection", "Unit-focused inspection covering interior systems, balconies, and in-suite mechanical equipment."],
+          ].map(([name, description], i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Service",
+              name,
+              description,
+              serviceType: "Home inspection",
+              areaServed: "Ottawa, Ontario, Canada",
+              provider: {
+                "@type": "HomeAndConstructionBusiness",
+                name: "Ottawa Full Spectrum Home Inspection",
+              },
+            },
+          })),
+        }),
+      },
+    ],
   }),
   component: Services,
 });
