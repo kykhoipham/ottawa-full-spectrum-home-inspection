@@ -70,8 +70,12 @@ function Home() {
             alt="Beautiful Ottawa home at golden hour"
             width={1920}
             height={1280}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover"
           />
+
           <div className="absolute inset-0 bg-gradient-overlay" />
         </div>
 
