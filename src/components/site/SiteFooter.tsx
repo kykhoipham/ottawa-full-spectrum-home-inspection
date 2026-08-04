@@ -30,7 +30,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm">
             <li className="flex items-start gap-2 text-primary-foreground/85">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-              <span>29 Cremona Crest<br />Ottawa, ON,<br />K2G 0Z9<br />Canada</span>
+              <span>29 Cremona Crest<br />Ottawa, ON, K2G 0Z9<br />Canada</span>
             </li>
           </ul>
         </div>
