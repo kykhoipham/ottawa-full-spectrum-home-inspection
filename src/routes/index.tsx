@@ -35,13 +35,13 @@ const inspectorImages = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ottawa Full Spectrum Home Inspection — Tarion Expert" },
+      { title: "OFS Home Inspection Ottawa | Full Spectrum Home Inspection" },
       {
         name: "description",
         content:
-          "Pre-purchase, pre-listing, and new construction home inspections across Ottawa and the National Capital Region. Detailed reports, 24-hour delivery.",
+          "OFS Home Inspection (Ottawa Full Spectrum Home Inspection) provides pre-purchase, pre-listing, and new construction inspections across Ottawa and the NCR. Reports in 24 hours.",
       },
-      { property: "og:title", content: "Ottawa Full Spectrum Home Inspection" },
+      { property: "og:title", content: "OFS Home Inspection Ottawa | Ottawa Full Spectrum Home Inspection" },
       {
         property: "og:description",
         content:
@@ -50,7 +50,26 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://ottawa-full-spectrum-home-inspection.lovable.app/" },
     ],
     links: [{ rel: "canonical", href: "https://ottawa-full-spectrum-home-inspection.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": "https://ottawa-full-spectrum-home-inspection.lovable.app/#webpage",
+          url: "https://ottawa-full-spectrum-home-inspection.lovable.app/",
+          name: "OFS Home Inspection Ottawa | Ottawa Full Spectrum Home Inspection",
+          isPartOf: { "@id": "https://ottawa-full-spectrum-home-inspection.lovable.app/#website" },
+          about: { "@id": "https://ottawa-full-spectrum-home-inspection.lovable.app/#business" },
+          primaryImageOfPage: {
+            "@type": "ImageObject",
+            url: "https://ottawa-full-spectrum-home-inspection.lovable.app/favicon.png",
+          },
+        }),
+      },
+    ],
   }),
+
   component: Home,
 });
 
