@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
-const RESEND_API_KEY = "re_V8J91Cr3_3mJuqVjkdVUjfo1yh1Rzffa2";
+const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") ?? "";
 const TO_EMAIL = "kykhoipham@gmail.com";
 const FROM_EMAIL = "onboarding@resend.dev";
 
@@ -25,6 +25,13 @@ serve(async (req) => {
   }
 
   try {
+    if (!RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured");
+      return new Response(JSON.stringify({ error: "Email service not configured" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
     const body = await req.json();
     const isContact = body.type === "contact";
 
