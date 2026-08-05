@@ -12,9 +12,9 @@ export const Route = createFileRoute("/services")({
       { name: "description", content: "Pre-purchase, pre-listing, new construction, PDI, and specialty inspections across Ottawa and the NCR." },
       { property: "og:title", content: "Inspection Services" },
       { property: "og:description", content: "Full-spectrum home inspections for buyers, sellers, and new builds." },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: "https://ottawa-full-spectrum-home-inspection.lovable.app/services" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: "https://ottawa-full-spectrum-home-inspection.lovable.app/services" }],
     scripts: [
       {
         type: "application/ld+json",

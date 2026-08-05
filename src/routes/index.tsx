@@ -47,9 +47,9 @@ export const Route = createFileRoute("/")({
         content:
           "Detail-driven home inspections in Ottawa. Honest reporting, clear photos, answers you can use.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://ottawa-full-spectrum-home-inspection.lovable.app/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://ottawa-full-spectrum-home-inspection.lovable.app/" }],
   }),
   component: Home,
 });
