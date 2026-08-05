@@ -100,15 +100,17 @@ function Home() {
 
         <div className="relative container-prose py-28 md:py-40">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-cream/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-cream backdrop-blur-sm ring-1 ring-cream/20">
-            <ShieldCheck className="h-3.5 w-3.5" /> Ottawa · NCR · Eastern Ontario
+            <ShieldCheck className="h-3.5 w-3.5" /> OFS Home Inspection · Ottawa · NCR
           </p>
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-cream text-balance max-w-3xl leading-[1.05]">
             See the whole picture before you sign.
           </h1>
           <p className="mt-6 max-w-xl text-lg md:text-xl text-cream/95 leading-relaxed">
-            Ottawa Full Spectrum Home Inspection that catches what listing photos miss —
-            from foundation to roofline, with photo-rich reports delivered within 24 hours.
+            Ottawa Full Spectrum Home Inspection (OFS Home Inspection) catches what listing
+            photos miss — from foundation to roofline, with photo-rich reports delivered
+            within 24 hours.
           </p>
+
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               to="/book"
