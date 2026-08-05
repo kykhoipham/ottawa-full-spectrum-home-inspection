@@ -9,9 +9,9 @@ export const Route = createFileRoute("/agreement")({
       { name: "description", content: "Standard pre-inspection agreement outlining the scope, limitations, and terms of service." },
       { property: "og:title", content: "Inspection Agreement" },
       { property: "og:description", content: "Read our standard inspection agreement and terms of service." },
-      { property: "og:url", content: "/agreement" },
+      { property: "og:url", content: "https://ottawa-full-spectrum-home-inspection.lovable.app/agreement" },
     ],
-    links: [{ rel: "canonical", href: "/agreement" }],
+    links: [{ rel: "canonical", href: "https://ottawa-full-spectrum-home-inspection.lovable.app/agreement" }],
   }),
   component: Agreement,
 });

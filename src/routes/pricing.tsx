@@ -9,9 +9,9 @@ export const Route = createFileRoute("/pricing")({
       { name: "description", content: "Transparent home inspection pricing for Ottawa homes, condos, and new construction. All reports delivered within 24 hours." },
       { property: "og:title", content: "Home Inspection Pricing" },
       { property: "og:description", content: "Flat-rate pricing based on square footage. No hidden fees." },
-      { property: "og:url", content: "/pricing" },
+      { property: "og:url", content: "https://ottawa-full-spectrum-home-inspection.lovable.app/pricing" },
     ],
-    links: [{ rel: "canonical", href: "/pricing" }],
+    links: [{ rel: "canonical", href: "https://ottawa-full-spectrum-home-inspection.lovable.app/pricing" }],
   }),
   component: Pricing,
 });

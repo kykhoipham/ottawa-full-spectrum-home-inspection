@@ -13,9 +13,9 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Get in touch with Khoi Pham at Ottawa Full Spectrum Home Inspection. Call, email, or send a message." },
       { property: "og:title", content: "Contact Us" },
       { property: "og:description", content: "Reach out to book an inspection or ask a question." },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://ottawa-full-spectrum-home-inspection.lovable.app/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://ottawa-full-spectrum-home-inspection.lovable.app/contact" }],
     scripts: [
       {
         type: "application/ld+json",
