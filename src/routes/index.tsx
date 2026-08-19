@@ -119,10 +119,10 @@ function Home() {
               Book Your Inspection <ArrowRight className="h-4 w-4" />
             </Link>
             <a
-              href="tel:+17538863515"
+              href="tel:+16137203515"
               className="inline-flex items-center gap-2 rounded-full border border-cream/40 bg-cream/10 px-7 py-3.5 text-sm font-semibold text-cream backdrop-blur-sm transition-colors hover:bg-cream/20"
             >
-              <Phone className="h-4 w-4" /> (753) 886-3515
+              <Phone className="h-4 w-4" /> (613) 720-3515
             </a>
           </div>
 

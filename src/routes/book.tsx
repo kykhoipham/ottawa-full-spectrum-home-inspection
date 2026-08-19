@@ -67,7 +67,7 @@ function Book() {
       toast.success("Request sent! We'll confirm your slot within 24 hours.");
       (e.target as HTMLFormElement).reset();
     } catch {
-      toast.error("Something went wrong — please call us at (753) 886-3515 or try again.");
+      toast.error("Something went wrong — please call us at (613) 720-3515 or try again.");
     } finally {
       setLoading(false);
     }

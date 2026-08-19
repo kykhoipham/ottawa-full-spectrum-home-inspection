@@ -46,10 +46,10 @@ export function SiteHeader() {
 
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="tel:+17538863515"
+            href="tel:+16137203515"
             className="hidden xl:inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground"
           >
-            <Phone className="h-3.5 w-3.5" /> (753) 886-3515
+            <Phone className="h-3.5 w-3.5" /> (613) 720-3515
           </a>
           <Link
             to="/book"

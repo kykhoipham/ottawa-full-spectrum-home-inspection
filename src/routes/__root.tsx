@@ -98,7 +98,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               alternateName: ["OFS Home Inspection", "OFS Home Inspection Ottawa"],
               url: "https://ottawa-full-spectrum-home-inspection.lovable.app/",
               email: "info@OFShomeinspection.com",
-              telephone: "+1-753-886-3515",
+              telephone: "+1-613-720-3515",
               areaServed: "Ottawa, Ontario, Canada",
               address: {
                 "@type": "PostalAddress",
