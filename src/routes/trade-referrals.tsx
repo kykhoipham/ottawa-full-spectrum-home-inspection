@@ -66,8 +66,8 @@ function TradeReferrals() {
             and we'll connect you with the right trade in our network.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="tel:+17538863515" className="inline-flex items-center gap-2 rounded-full bg-cream px-6 py-3 text-sm font-semibold text-primary hover:-translate-y-0.5 transition-transform">
-              <Phone className="h-4 w-4" /> (753) 886-3515
+            <a href="tel:+16137203515" className="inline-flex items-center gap-2 rounded-full bg-cream px-6 py-3 text-sm font-semibold text-primary hover:-translate-y-0.5 transition-transform">
+              <Phone className="h-4 w-4" /> (613) 720-3515
             </a>
             <a href="mailto:info@OFShomeinspection.com" className="inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/10 px-6 py-3 text-sm font-semibold text-cream hover:bg-cream/20">
               <Mail className="h-4 w-4" /> Email Khoi

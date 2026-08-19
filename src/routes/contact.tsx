@@ -24,7 +24,7 @@ export const Route = createFileRoute("/contact")({
           "@type": "LocalBusiness",
           name: "Ottawa Full Spectrum Home Inspection",
           image: "https://www.ottawafullspectrumhomeinspection.com/logo.png",
-          telephone: "+1-753-886-3515",
+          telephone: "+1-613-720-3515",
           email: "info@OFShomeinspection.com",
           url: "https://www.ottawafullspectrumhomeinspection.com/",
           address: {
@@ -109,7 +109,7 @@ function Contact() {
       <section className="container-prose py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[2fr_3fr]">
           <aside className="space-y-6">
-            <ContactCard icon={Phone} title="Call or text" body={<a className="hover:text-primary" href="tel:+17538863515">(753) 886-3515</a>} note="Mon–Sat, 7am – 8pm ET" />
+            <ContactCard icon={Phone} title="Call or text" body={<a className="hover:text-primary" href="tel:+16137203515">(613) 720-3515</a>} note="Mon–Sat, 7am – 8pm ET" />
             <ContactCard icon={Mail} title="Email" body={<a className="hover:text-primary break-all" href="mailto:info@OFShomeinspection.com">info@OFShomeinspection.com</a>} note="Replies within 1 business day" />
             <ContactCard icon={MapPin} title="Service area" body="Ottawa, Kanata, Orleans, Barrhaven, Nepean, Stittsville, Gatineau & surrounding NCR." note="29 Cremona Crest, Ottawa, ON" />
           </aside>
