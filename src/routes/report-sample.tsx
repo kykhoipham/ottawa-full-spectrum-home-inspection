@@ -50,6 +50,12 @@ function ReportSample() {
           >
             <Mail className="h-4 w-4" /> Ask a question
           </a>
+          <a
+            href="#tarion-report-start"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted"
+          >
+            <FileText className="h-4 w-4" /> Tarion Sample Report
+          </a>
         </div>
       </PageHeader>
 
@@ -122,13 +128,8 @@ function ReportSample() {
             >
               <Download className="h-4 w-4" /> Download sample PDF
             </a>
-            <a
-              href="#tarion-report-start"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted"
-            >
-              <FileText className="h-4 w-4" /> Tarion Sample Report
-            </a>
           </div>
+
 
           <div id="tarion-report-start" className="mt-8 space-y-6 scroll-mt-24">
             {TARION_PAGES.map((p) => (
