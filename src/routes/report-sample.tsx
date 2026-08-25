@@ -114,7 +114,23 @@ function ReportSample() {
             <span className="text-sm text-muted-foreground">{TARION_TOTAL_PAGES} pages · scroll to view</span>
           </div>
 
-          <div className="mt-8 space-y-6">
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="/tarion-sample-inspection-report.pdf"
+              download="OFS-Tarion-Sample-Home-Inspection-Report.pdf"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-glow"
+            >
+              <Download className="h-4 w-4" /> Download sample PDF
+            </a>
+            <a
+              href="#tarion-report-start"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted"
+            >
+              <FileText className="h-4 w-4" /> View report
+            </a>
+          </div>
+
+          <div id="tarion-report-start" className="mt-8 space-y-6 scroll-mt-24">
             {TARION_PAGES.map((p) => (
               <figure
                 key={p.page}
