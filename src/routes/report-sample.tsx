@@ -94,6 +94,60 @@ function ReportSample() {
           </a>
         </div>
       </section>
+
+      <section className="border-t border-border/60 bg-accent/20">
+        <div className="container-prose py-16 md:py-20">
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
+                Tarion Warranty
+              </p>
+              <h2 className="font-display text-2xl font-semibold inline-flex items-center gap-2">
+                <FileText className="h-6 w-6 text-primary" /> Tarion sample report
+              </h2>
+              <p className="mt-3 max-w-2xl text-muted-foreground leading-relaxed">
+                For new-build warranty claims, your report is prepared in a format accepted by
+                Tarion — aligned with Tarion guidelines and the Construction Performance Guidelines
+                (CPG). Scroll through a real sample below.
+              </p>
+            </div>
+            <span className="text-sm text-muted-foreground">{TARION_TOTAL_PAGES} pages · scroll to view</span>
+          </div>
+
+          <div className="mt-8 space-y-6">
+            {TARION_PAGES.map((p) => (
+              <figure
+                key={p.page}
+                className="overflow-hidden rounded-2xl bg-card ring-1 ring-border shadow-elegant"
+              >
+                <img
+                  src={p.src}
+                  alt={`Tarion sample inspection report — page ${p.page} of ${TARION_TOTAL_PAGES}`}
+                  width={935}
+                  height={1210}
+                  loading={p.page <= 2 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="w-full h-auto"
+                />
+              </figure>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col items-center gap-4 rounded-3xl bg-muted/50 p-8 text-center ring-1 ring-border">
+            <p className="text-sm text-muted-foreground italic max-w-xl">
+              This Tarion-format sample has identifying details removed. It follows the Standards of
+              Practice of the Canadian Association of Home Inspectors, Tarion guidelines, and the CPG.
+            </p>
+            <a
+              href="/tarion-sample-inspection-report.pdf"
+              download="OFS-Tarion-Sample-Home-Inspection-Report.pdf"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-glow"
+            >
+              <Download className="h-4 w-4" /> Download the Tarion sample PDF
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
