@@ -126,7 +126,7 @@ function ReportSample() {
               href="#tarion-report-start"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground hover:bg-muted"
             >
-              <FileText className="h-4 w-4" /> View report
+              <FileText className="h-4 w-4" /> Tarion Sample Report
             </a>
           </div>
 
