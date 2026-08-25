@@ -22,6 +22,12 @@ const PAGES = Array.from({ length: TOTAL_PAGES }, (_, i) => {
   return { src: `/report-pages/page-${n}.jpg`, page: i + 1 };
 });
 
+const TARION_TOTAL_PAGES = 7;
+const TARION_PAGES = Array.from({ length: TARION_TOTAL_PAGES }, (_, i) => ({
+  src: `/tarion-report-pages/page-${i + 1}.jpg`,
+  page: i + 1,
+}));
+
 function ReportSample() {
   return (
     <>
