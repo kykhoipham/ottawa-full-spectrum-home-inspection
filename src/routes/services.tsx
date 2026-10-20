@@ -8,8 +8,6 @@ import { PageHeader } from "@/components/site/PageHeader";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { property: 'og:type', content: 'website' },
-      { name: 'twitter:card', content: 'summary_large_image' },
       { title: "Inspection Services — Ottawa Full Spectrum Home Inspection" },
       { name: "description", content: "Pre-purchase, pre-listing, new construction, PDI, and specialty inspections across Ottawa and the NCR." },
       { property: "og:title", content: "Inspection Services" },

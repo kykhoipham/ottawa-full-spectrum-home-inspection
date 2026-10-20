@@ -9,8 +9,6 @@ import { PageHeader } from "@/components/site/PageHeader";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { property: 'og:type', content: 'website' },
-      { name: 'twitter:card', content: 'summary_large_image' },
       { title: "Contact — Ottawa Full Spectrum Home Inspection" },
       { name: "description", content: "Get in touch with Khoi Pham at Ottawa Full Spectrum Home Inspection. Call, email, or send a message." },
       { property: "og:title", content: "Contact Us" },

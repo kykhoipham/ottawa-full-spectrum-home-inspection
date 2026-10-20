@@ -8,8 +8,6 @@ import { PageHeader } from "@/components/site/PageHeader";
 export const Route = createFileRoute("/book")({
   head: () => ({
     meta: [
-      { property: 'og:type', content: 'website' },
-      { name: 'twitter:card', content: 'summary_large_image' },
       { title: "Book Inspection — Ottawa Full Spectrum Home Inspection" },
       { name: "description", content: "Request a home inspection in Ottawa. We confirm bookings within 24 hours, often the same day." },
       { property: "og:title", content: "Book Your Home Inspection" },

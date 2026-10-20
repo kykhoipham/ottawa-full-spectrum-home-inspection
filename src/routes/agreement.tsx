@@ -5,8 +5,6 @@ import { PageHeader } from "@/components/site/PageHeader";
 export const Route = createFileRoute("/agreement")({
   head: () => ({
     meta: [
-      { property: 'og:type', content: 'website' },
-      { name: 'twitter:card', content: 'summary_large_image' },
       { title: "Inspection Agreement — Ottawa Full Spectrum Home Inspection" },
       { name: "description", content: "Read the standard pre-inspection agreement outlining the scope, limitations, and terms of service." },
       { property: "og:title", content: "Inspection Agreement" },

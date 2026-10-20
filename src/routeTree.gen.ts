@@ -9,50 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AgreementRouteImport } from './routes/agreement'
-import { Route as BookRouteImport } from './routes/book'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as PricingRouteImport } from './routes/pricing'
-import { Route as ReportSampleRouteImport } from './routes/report-sample'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TradeReferralsRouteImport } from './routes/trade-referrals'
-import { Route as ApiPublicHooksGoogleRatingRouteImport } from './routes/api/public/hooks/google-rating'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ReportSampleRouteImport } from './routes/report-sample'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BookRouteImport } from './routes/book'
+import { Route as AgreementRouteImport } from './routes/agreement'
+import { Route as IndexRouteImport } from './routes/index'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AgreementRoute = AgreementRouteImport.update({
-  id: '/agreement',
-  path: '/agreement',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BookRoute = BookRouteImport.update({
-  id: '/book',
-  path: '/book',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReportSampleRoute = ReportSampleRouteImport.update({
-  id: '/report-sample',
-  path: '/report-sample',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
+const TradeReferralsRoute = TradeReferralsRouteImport.update({
+  id: '/trade-referrals',
+  path: '/trade-referrals',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -60,17 +29,41 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TradeReferralsRoute = TradeReferralsRouteImport.update({
-  id: '/trade-referrals',
-  path: '/trade-referrals',
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicHooksGoogleRatingRoute =
-  ApiPublicHooksGoogleRatingRouteImport.update({
-    id: '/api/public/hooks/google-rating',
-    path: '/api/public/hooks/google-rating',
-    getParentRoute: () => rootRouteImport,
-  } as any)
+const ReportSampleRoute = ReportSampleRouteImport.update({
+  id: '/report-sample',
+  path: '/report-sample',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgreementRoute = AgreementRouteImport.update({
+  id: '/agreement',
+  path: '/agreement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,7 +75,6 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade-referrals': typeof TradeReferralsRoute
-  '/api/public/hooks/google-rating': typeof ApiPublicHooksGoogleRatingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,7 +86,6 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade-referrals': typeof TradeReferralsRoute
-  '/api/public/hooks/google-rating': typeof ApiPublicHooksGoogleRatingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,7 +98,6 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade-referrals': typeof TradeReferralsRoute
-  '/api/public/hooks/google-rating': typeof ApiPublicHooksGoogleRatingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,7 +111,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/trade-referrals'
-    | '/api/public/hooks/google-rating'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,7 +122,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/trade-referrals'
-    | '/api/public/hooks/google-rating'
   id:
     | '__root__'
     | '/'
@@ -145,7 +133,6 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/trade-referrals'
-    | '/api/public/hooks/google-rating'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,58 +145,15 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TradeReferralsRoute: typeof TradeReferralsRoute
-  ApiPublicHooksGoogleRatingRoute: typeof ApiPublicHooksGoogleRatingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/agreement': {
-      id: '/agreement'
-      path: '/agreement'
-      fullPath: '/agreement'
-      preLoaderRoute: typeof AgreementRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/book': {
-      id: '/book'
-      path: '/book'
-      fullPath: '/book'
-      preLoaderRoute: typeof BookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/report-sample': {
-      id: '/report-sample'
-      path: '/report-sample'
-      fullPath: '/report-sample'
-      preLoaderRoute: typeof ReportSampleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
+    '/trade-referrals': {
+      id: '/trade-referrals'
+      path: '/trade-referrals'
+      fullPath: '/trade-referrals'
+      preLoaderRoute: typeof TradeReferralsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -219,18 +163,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/trade-referrals': {
-      id: '/trade-referrals'
-      path: '/trade-referrals'
-      fullPath: '/trade-referrals'
-      preLoaderRoute: typeof TradeReferralsRouteImport
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/hooks/google-rating': {
-      id: '/api/public/hooks/google-rating'
-      path: '/api/public/hooks/google-rating'
-      fullPath: '/api/public/hooks/google-rating'
-      preLoaderRoute: typeof ApiPublicHooksGoogleRatingRouteImport
+    '/report-sample': {
+      id: '/report-sample'
+      path: '/report-sample'
+      fullPath: '/report-sample'
+      preLoaderRoute: typeof ReportSampleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agreement': {
+      id: '/agreement'
+      path: '/agreement'
+      fullPath: '/agreement'
+      preLoaderRoute: typeof AgreementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -246,7 +225,6 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TradeReferralsRoute: TradeReferralsRoute,
-  ApiPublicHooksGoogleRatingRoute: ApiPublicHooksGoogleRatingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

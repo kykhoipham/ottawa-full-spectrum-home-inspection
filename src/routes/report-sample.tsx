@@ -5,8 +5,6 @@ import { PageHeader } from "@/components/site/PageHeader";
 export const Route = createFileRoute("/report-sample")({
   head: () => ({
     meta: [
-      { property: 'og:type', content: 'website' },
-      { name: 'twitter:card', content: 'summary_large_image' },
       { title: "Sample Inspection Report — Ottawa Full Spectrum" },
       { name: "description", content: "View a real sample home inspection report from OFS Home Inspection — photo-rich, severity-rated, and written in plain English." },
       { property: "og:title", content: "Sample Inspection Report" },

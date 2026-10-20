@@ -10,8 +10,6 @@ import { PageHeader } from "@/components/site/PageHeader";
 export const Route = createFileRoute("/trade-referrals")({
   head: () => ({
     meta: [
-      { property: 'og:type', content: 'website' },
-      { name: 'twitter:card', content: 'summary_large_image' },
       { title: "Trade Referrals — Ottawa Full Spectrum Home Inspection" },
       { name: "description", content: "A vetted directory of Ottawa-area trades — electricians, plumbers, engineers, roofers, HVAC techs and more — we trust to fix inspection findings." },
       { property: "og:title", content: "Trade Referrals" },

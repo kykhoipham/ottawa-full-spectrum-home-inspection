@@ -1,8 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { googleRatingQueryOptions } from '@/lib/google-rating.functions';
-import { formatGoogleCheckedAt } from '@/lib/google-rating';
 import {
   ShieldCheck,
   Camera,
@@ -36,7 +33,6 @@ const inspectorImages = [
 ];
 
 export const Route = createFileRoute("/")({
-  loader: ({ context }) => context.queryClient.ensureQueryData(googleRatingQueryOptions),
   head: () => ({
     meta: [
       { title: "OFS Home Inspection Ottawa | Full Spectrum Home Inspection" },
@@ -52,8 +48,6 @@ export const Route = createFileRoute("/")({
           "Detail-driven home inspections in Ottawa. Honest reporting, clear photos, answers you can use.",
       },
       { property: "og:url", content: "https://ottawa-full-spectrum-home-inspection.lovable.app/" },
-      { property: 'og:type', content: 'website' },
-      { name: 'twitter:card', content: 'summary_large_image' },
     ],
     links: [{ rel: "canonical", href: "https://ottawa-full-spectrum-home-inspection.lovable.app/" }],
     scripts: [
@@ -80,7 +74,6 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { data: googleRating } = useSuspenseQuery(googleRatingQueryOptions);
   const [slide, setSlide] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setSlide((s) => (s + 1) % inspectorImages.length), 4000);
@@ -138,27 +131,13 @@ function Home() {
               { k: "500+", v: "Homes inspected" },
               { k: "24 hr", v: "Report turnaround" },
               { k: "150+", v: "Inspection points" },
+              { k: "5.0★", v: "Client rating" },
             ].map((s) => (
               <div key={s.v} className="border-l-2 border-cream/30 pl-4">
                 <div className="font-display text-2xl md:text-3xl font-bold text-cream">{s.k}</div>
                 <div className="mt-1 text-xs uppercase tracking-wider text-cream/90">{s.v}</div>
               </div>
             ))}
-            <div className="min-w-0 border-l-2 border-cream/30 pl-4">
-              <div className="font-display text-2xl md:text-3xl font-bold text-cream">{googleRating.rating.toFixed(1)}★</div>
-              <div className="mt-1 text-xs uppercase tracking-wider text-cream/90">{googleRating.reviewCount} Google reviews</div>
-              <p className="mt-2 text-xs leading-relaxed text-cream/90">
-                Last checked: <time dateTime={googleRating.checkedAt}>{formatGoogleCheckedAt(googleRating.checkedAt)}</time>
-              </p>
-              <a
-                href="https://www.google.com/maps/place/Ottawa+Full+Spectrum+Home+Inspection/@45.3249012,-75.7893864,15232m/data=!3m1!1e3!4m10!1m2!2m1!1sofs+home+inspection!3m6!1s0x4cce07e96a7e74f5:0xd3576a9886472990!8m2!3d45.3292122!4d-75.7687639!15sChNvZnMgaG9tZSBpbnNwZWN0aW9uWhUiE29mcyBob21lIGluc3BlY3Rpb26SAQ5ob21lX2luc3BlY3RvcpoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyeHdVMVl5T1ZWVWVrWkZUbFJvUlU1dWJFaFRNMnhPVjFWc1RWVnJSUkFC4AEA-gEECAAQTA!16s%2Fg%2F11zdtdc2rq?entry=ttu&g_ep=EgoyMDI2MTAxNC4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-cream underline underline-offset-4 transition-opacity hover:opacity-80"
-              >
-                View on Google Maps <ArrowRight className="h-3 w-3 shrink-0" aria-hidden="true" />
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -218,7 +197,7 @@ function Home() {
                 ))}
               </div>
               <p className="mt-2 text-sm text-foreground italic">
-                "Khoi caught a roof issues. Saved us thousands."
+                "Khoi caught a roof issue our realtor missed. Saved us thousands."
               </p>
               <p className="mt-2 text-xs text-muted-foreground">— Sarah & Mark, Kanata</p>
             </div>
