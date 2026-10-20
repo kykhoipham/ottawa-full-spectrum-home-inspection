@@ -8,6 +8,13 @@
       "when": 1792459834730,
       "tag": "0000_daily_google_rating_snapshot",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792459915881,
+      "tag": "0001_lock_rating_refresh_credentials",
+      "breakpoints": true
     }
   ]
 }
