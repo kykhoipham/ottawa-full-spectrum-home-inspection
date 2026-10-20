@@ -15,6 +15,13 @@
       "when": 1792459915881,
       "tag": "0001_lock_rating_refresh_credentials",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792460253905,
+      "tag": "0002_remove_open_read_policies",
+      "breakpoints": true
     }
   ]
 }
