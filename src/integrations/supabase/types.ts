@@ -44,6 +44,48 @@ export type Database = {
         }
         Relationships: []
       }
+      google_rating_refresh_control: {
+        Row: {
+          id: string
+          last_attempt_at: string | null
+          token: string
+        }
+        Insert: {
+          id: string
+          last_attempt_at?: string | null
+          token: string
+        }
+        Update: {
+          id?: string
+          last_attempt_at?: string | null
+          token?: string
+        }
+        Relationships: []
+      }
+      google_rating_snapshot: {
+        Row: {
+          checked_at: string
+          id: string
+          place_id: string | null
+          rating: number
+          review_count: number
+        }
+        Insert: {
+          checked_at: string
+          id?: string
+          place_id?: string | null
+          rating: number
+          review_count: number
+        }
+        Update: {
+          checked_at?: string
+          id?: string
+          place_id?: string | null
+          rating?: number
+          review_count?: number
+        }
+        Relationships: []
+      }
       inspection_bookings: {
         Row: {
           created_at: string
@@ -94,7 +136,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      authorize_google_rating_refresh: {
+        Args: { p_token: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
