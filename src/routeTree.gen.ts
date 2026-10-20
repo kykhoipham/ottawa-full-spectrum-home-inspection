@@ -9,49 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TradeReferralsRouteImport } from './routes/trade-referrals'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ReportSampleRouteImport } from './routes/report-sample'
-import { Route as PricingRouteImport } from './routes/pricing'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as BookRouteImport } from './routes/book'
-import { Route as AgreementRouteImport } from './routes/agreement'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AgreementRouteImport } from './routes/agreement'
+import { Route as BookRouteImport } from './routes/book'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as ReportSampleRouteImport } from './routes/report-sample'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TradeReferralsRouteImport } from './routes/trade-referrals'
 
-const TradeReferralsRoute = TradeReferralsRouteImport.update({
-  id: '/trade-referrals',
-  path: '/trade-referrals',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReportSampleRoute = ReportSampleRouteImport.update({
-  id: '/report-sample',
-  path: '/report-sample',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BookRoute = BookRouteImport.update({
-  id: '/book',
-  path: '/book',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AgreementRoute = AgreementRouteImport.update({
@@ -59,9 +29,39 @@ const AgreementRoute = AgreementRouteImport.update({
   path: '/agreement',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportSampleRoute = ReportSampleRouteImport.update({
+  id: '/report-sample',
+  path: '/report-sample',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TradeReferralsRoute = TradeReferralsRouteImport.update({
+  id: '/trade-referrals',
+  path: '/trade-referrals',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -149,53 +149,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/trade-referrals': {
-      id: '/trade-referrals'
-      path: '/trade-referrals'
-      fullPath: '/trade-referrals'
-      preLoaderRoute: typeof TradeReferralsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/report-sample': {
-      id: '/report-sample'
-      path: '/report-sample'
-      fullPath: '/report-sample'
-      preLoaderRoute: typeof ReportSampleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/book': {
-      id: '/book'
-      path: '/book'
-      fullPath: '/book'
-      preLoaderRoute: typeof BookRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agreement': {
@@ -205,11 +163,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AgreementRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report-sample': {
+      id: '/report-sample'
+      path: '/report-sample'
+      fullPath: '/report-sample'
+      preLoaderRoute: typeof ReportSampleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trade-referrals': {
+      id: '/trade-referrals'
+      path: '/trade-referrals'
+      fullPath: '/trade-referrals'
+      preLoaderRoute: typeof TradeReferralsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
