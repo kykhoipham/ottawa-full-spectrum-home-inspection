@@ -5,6 +5,8 @@ import { PageHeader } from "@/components/site/PageHeader";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
       { title: "Pricing — Ottawa Full Spectrum Home Inspection" },
       { name: "description", content: "Transparent home inspection pricing for Ottawa homes, condos, and new construction. All reports delivered within 24 hours." },
       { property: "og:title", content: "Home Inspection Pricing" },
