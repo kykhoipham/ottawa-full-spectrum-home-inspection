@@ -11,7 +11,7 @@ import {
   CheckCircle2,
   Phone,
 } from "lucide-react";
-import { getGoogleRating } from "@/lib/google-rating.functions";
+import { getGoogleRating, readRatingFromBrowser, type GoogleRating } from "@/lib/google-rating.functions";
 import heroHome from "@/assets/hero-home.jpg";
 import inspector1 from "@/assets/inspector-window.jpg";
 import inspector2 from "@/assets/inspector-014.jpg";
@@ -76,7 +76,12 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const rating = Route.useLoaderData();
+  const loaded = Route.useLoaderData();
+  const [rating, setRating] = useState<GoogleRating | null>(loaded);
+  useEffect(() => {
+    if (loaded) return;
+    readRatingFromBrowser().then((r) => r && setRating(r)).catch(() => {});
+  }, [loaded]);
   const [slide, setSlide] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setSlide((s) => (s + 1) % inspectorImages.length), 4000);
