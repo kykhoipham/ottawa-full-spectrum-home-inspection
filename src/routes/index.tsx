@@ -218,7 +218,7 @@ function Home() {
                 ))}
               </div>
               <p className="mt-2 text-sm text-foreground italic">
-                "Khoi caught a roof issue our realtor missed. Saved us thousands."
+                "Khoi caught a roof issues. Saved us thousands."
               </p>
               <p className="mt-2 text-xs text-muted-foreground">— Sarah & Mark, Kanata</p>
             </div>
