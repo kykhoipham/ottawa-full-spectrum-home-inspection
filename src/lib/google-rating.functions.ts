@@ -38,8 +38,7 @@ async function fetchFromGoogle(): Promise<Omit<GoogleRating, "checkedAt"> | null
   return { rating: d.rating, reviewCount: d.userRatingCount ?? 0, mapsUri: d.googleMapsUri ?? null };
 }
 
-export const getGoogleRating = createServerFn({ method: "GET" }).handler(
-  async (): Promise<GoogleRating | null> => {
+export async function loadAndRefreshRating(): Promise<GoogleRating | null> {
     const sb = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_PUBLISHABLE_KEY!, {
       auth: { persistSession: false },
     });
@@ -69,5 +68,15 @@ export const getGoogleRating = createServerFn({ method: "GET" }).handler(
       }
     }
     return current;
-  },
-);
+}
+
+export const getGoogleRating = createServerFn({ method: "GET" }).handler(loadAndRefreshRating);
+
+// Browser-side read straight from the database: works on any host (Vercel, GitHub, etc.).
+export async function readRatingFromBrowser(): Promise<GoogleRating | null> {
+  const { supabase } = await import("@/integrations/supabase/client");
+  const { data } = await supabase.from("google_rating").select("*").eq("id", 1).maybeSingle();
+  return data
+    ? { rating: Number(data.rating), reviewCount: data.review_count, mapsUri: data.maps_uri, checkedAt: data.checked_at }
+    : null;
+}
