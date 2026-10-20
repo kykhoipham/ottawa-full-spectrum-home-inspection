@@ -18,6 +18,7 @@ import { Route as ReportSampleRouteImport } from './routes/report-sample'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TradeReferralsRouteImport } from './routes/trade-referrals'
+import { Route as ApiPublicHooksGoogleRatingRouteImport } from './routes/api/public/hooks/google-rating'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +65,12 @@ const TradeReferralsRoute = TradeReferralsRouteImport.update({
   path: '/trade-referrals',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHooksGoogleRatingRoute =
+  ApiPublicHooksGoogleRatingRouteImport.update({
+    id: '/api/public/hooks/google-rating',
+    path: '/api/public/hooks/google-rating',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade-referrals': typeof TradeReferralsRoute
+  '/api/public/hooks/google-rating': typeof ApiPublicHooksGoogleRatingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +94,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade-referrals': typeof TradeReferralsRoute
+  '/api/public/hooks/google-rating': typeof ApiPublicHooksGoogleRatingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +107,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/trade-referrals': typeof TradeReferralsRoute
+  '/api/public/hooks/google-rating': typeof ApiPublicHooksGoogleRatingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/trade-referrals'
+    | '/api/public/hooks/google-rating'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +133,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/trade-referrals'
+    | '/api/public/hooks/google-rating'
   id:
     | '__root__'
     | '/'
@@ -133,6 +145,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/trade-referrals'
+    | '/api/public/hooks/google-rating'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +158,7 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TradeReferralsRoute: typeof TradeReferralsRoute
+  ApiPublicHooksGoogleRatingRoute: typeof ApiPublicHooksGoogleRatingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,6 +226,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TradeReferralsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/google-rating': {
+      id: '/api/public/hooks/google-rating'
+      path: '/api/public/hooks/google-rating'
+      fullPath: '/api/public/hooks/google-rating'
+      preLoaderRoute: typeof ApiPublicHooksGoogleRatingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -225,6 +246,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TradeReferralsRoute: TradeReferralsRoute,
+  ApiPublicHooksGoogleRatingRoute: ApiPublicHooksGoogleRatingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
