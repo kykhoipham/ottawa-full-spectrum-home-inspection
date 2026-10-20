@@ -131,13 +131,27 @@ function Home() {
               { k: "500+", v: "Homes inspected" },
               { k: "24 hr", v: "Report turnaround" },
               { k: "150+", v: "Inspection points" },
-              { k: "5.0★", v: "Client rating" },
             ].map((s) => (
               <div key={s.v} className="border-l-2 border-cream/30 pl-4">
                 <div className="font-display text-2xl md:text-3xl font-bold text-cream">{s.k}</div>
                 <div className="mt-1 text-xs uppercase tracking-wider text-cream/90">{s.v}</div>
               </div>
             ))}
+            <div className="min-w-0 border-l-2 border-cream/30 pl-4">
+              <div className="font-display text-2xl md:text-3xl font-bold text-cream">5.0★</div>
+              <div className="mt-1 text-xs uppercase tracking-wider text-cream/90">26 Google reviews</div>
+              <p className="mt-2 text-xs leading-relaxed text-cream/90">
+                Last checked: <time dateTime="2026-10-20T01:26:59Z">Oct 19, 2026 · 9:26 p.m. EDT</time>
+              </p>
+              <a
+                href="https://www.google.com/maps/place/Ottawa+Full+Spectrum+Home+Inspection/@45.3249012,-75.7893864,15232m/data=!3m1!1e3!4m10!1m2!2m1!1sofs+home+inspection!3m6!1s0x4cce07e96a7e74f5:0xd3576a9886472990!8m2!3d45.3292122!4d-75.7687639!15sChNvZnMgaG9tZSBpbnNwZWN0aW9uWhUiE29mcyBob21lIGluc3BlY3Rpb26SAQ5ob21lX2luc3BlY3RvcpoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyeHdVMVl5T1ZWVWVrWkZUbFJvUlU1dWJFaFRNMnhPVjFWc1RWVnJSUkFC4AEA-gEECAAQTA!16s%2Fg%2F11zdtdc2rq?entry=ttu&g_ep=EgoyMDI2MTAxNC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-cream underline underline-offset-4 transition-opacity hover:opacity-80"
+              >
+                View on Google Maps <ArrowRight className="h-3 w-3 shrink-0" aria-hidden="true" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
