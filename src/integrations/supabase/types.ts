@@ -44,6 +44,30 @@ export type Database = {
         }
         Relationships: []
       }
+      google_rating: {
+        Row: {
+          checked_at: string
+          id: number
+          maps_uri: string | null
+          rating: number
+          review_count: number
+        }
+        Insert: {
+          checked_at?: string
+          id?: number
+          maps_uri?: string | null
+          rating: number
+          review_count: number
+        }
+        Update: {
+          checked_at?: string
+          id?: number
+          maps_uri?: string | null
+          rating?: number
+          review_count?: number
+        }
+        Relationships: []
+      }
       google_rating_refresh_control: {
         Row: {
           id: string

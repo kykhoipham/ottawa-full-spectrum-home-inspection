@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Phone,
 } from "lucide-react";
+import { getGoogleRating } from "@/lib/google-rating.functions";
 import heroHome from "@/assets/hero-home.jpg";
 import inspector1 from "@/assets/inspector-window.jpg";
 import inspector2 from "@/assets/inspector-014.jpg";
@@ -70,10 +71,12 @@ export const Route = createFileRoute("/")({
     ],
   }),
 
+  loader: () => getGoogleRating().catch(() => null),
   component: Home,
 });
 
 function Home() {
+  const rating = Route.useLoaderData();
   const [slide, setSlide] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setSlide((s) => (s + 1) % inspectorImages.length), 4000);
@@ -131,13 +134,30 @@ function Home() {
               { k: "500+", v: "Homes inspected" },
               { k: "24 hr", v: "Report turnaround" },
               { k: "150+", v: "Inspection points" },
-              { k: "5.0★", v: "Client rating" },
             ].map((s) => (
               <div key={s.v} className="border-l-2 border-cream/30 pl-4">
                 <div className="font-display text-2xl md:text-3xl font-bold text-cream">{s.k}</div>
                 <div className="mt-1 text-xs uppercase tracking-wider text-cream/90">{s.v}</div>
               </div>
             ))}
+            <div className="border-l-2 border-cream/30 pl-4">
+              <div className="font-display text-2xl md:text-3xl font-bold text-cream">
+                {rating ? `${rating.rating.toFixed(1)}★` : "5.0★"}
+              </div>
+              <div className="mt-1 text-xs uppercase tracking-wider text-cream/90">
+                Google rating{rating ? ` · ${rating.reviewCount} reviews` : ""}
+              </div>
+              {rating && (
+                <div className="mt-1 text-[11px] text-cream/80">
+                  Updated {new Date(rating.checkedAt).toLocaleString("en-CA", { timeZone: "America/Toronto", dateStyle: "medium", timeStyle: "short" })}
+                </div>
+              )}
+              {rating?.mapsUri && (
+                <a href={rating.mapsUri} target="_blank" rel="noopener noreferrer" className="mt-1 inline-block text-[11px] text-cream underline underline-offset-2">
+                  View on Google Maps
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </section>
